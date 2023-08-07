@@ -2,13 +2,19 @@ import { useState } from 'react'
 import {PopupSubmitStyle, PopupBodyContainerStyle, PopupBodyStyle, PopupCloseStyle, PopupHeaderStyle, PopupTitleStyle } from '../PopupBody.styles'
 import CustomInput from '../CustomInput/CustomInput.component'
 import CustomButton from '../CustomButton/CustomButton.component'
+import {INPUT_ERRORS, checkAmount} from '../../utils/input/validation'
 import './Budget.styles.css'
+
 
 const Budget = ({onClose, height='646'}) => {
   const [budgetAmount, setBudgetAmount] = useState({budget: 0, error: ''})
-
   const onSubmit = () => {
-    console.log('onAddBudget')
+    const budgeError = checkAmount(budgetAmount.budget)
+    if (budgeError === 0) {
+      onClose()
+      return
+    }
+    setBudgetAmount({budget: '', error: INPUT_ERRORS[budgeError]})
   }
   return (
     <PopupBodyContainerStyle height={height}>

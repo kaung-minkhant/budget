@@ -21,10 +21,10 @@ const MainPage = () => {
         onReserve={() => setShowReserve(true)}
       />  
       <MainInfo />
-      {showBudget ? <BudgetContainer onClose={() => setShowBudget(false)} height='469'/> : null }
+      {showBudget ? <BudgetContainer onClose={() => setShowBudget(false)} height='360'/> : null }
       {showExpense ? <ExpenseContainer onClose={() => setShowExpense(false)} height='360'/> : null }
       {showIncome ? <IncomeContainer onClose={() => setShowIncome(false)} height='360'/> : null }
-      {showReserve ? <ReserveContainer onClose={() => setShowReserve(false)} height='360'/> : null }
+      {showReserve ? <ReserveContainer onClose={() => setShowReserve(false)} height='469'/> : null }
     </div>
   );
 }

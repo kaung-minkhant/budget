@@ -1,12 +1,12 @@
-import './CustomInput.styles.css'
+import { ErrorStyle, InputContainerStyle, InputFieldStyle, InputLabelStyle } from './CustomInput.styles';
 
-const CustomInput = ({type, error, label, ...otherAttributes}) => {
+const CustomInput = ({type, error, label, width='367', ...otherAttributes}) => {
   return (
-    <div className='inputcontainer'>
-      <div className='inputlabel'>{label}</div>
-      <input className='inputfield' type={type} {...otherAttributes}/>
-      {error && (<span className='error'>{error}</span>)}
-    </div>
+    <InputContainerStyle width={width}>
+      <InputLabelStyle>{label}</InputLabelStyle>
+      <InputFieldStyle type={type} {...otherAttributes}/>
+      {error && (<ErrorStyle>{error}</ErrorStyle>)}
+    </InputContainerStyle>
   )
 }
 

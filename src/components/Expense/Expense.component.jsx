@@ -3,12 +3,18 @@ import {PopupSubmitStyle, PopupBodyContainerStyle, PopupBodyStyle, PopupCloseSty
 import CustomInput from '../CustomInput/CustomInput.component'
 import CustomButton from '../CustomButton/CustomButton.component'
 import './Expense.styles.css'
+import { INPUT_ERRORS, checkAmount } from '../../utils/input/validation'
 
 const Expense = ({onClose, height='646'}) => {
   const [expense, setExpense] = useState({expense: 0, error: ''})
 
   const onSubmit = () => {
-    console.log('onAddExpense')
+    const expenseError = checkAmount(expense.expense)
+    if (expenseError === 0) {
+      onClose()
+      return
+    }
+  setExpense({expense: '', error: INPUT_ERRORS[expenseError]})
   }
   return (
     <PopupBodyContainerStyle height={height}>

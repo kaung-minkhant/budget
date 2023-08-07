@@ -3,12 +3,18 @@ import {PopupSubmitStyle, PopupBodyContainerStyle, PopupBodyStyle, PopupCloseSty
 import CustomInput from '../CustomInput/CustomInput.component'
 import CustomButton from '../CustomButton/CustomButton.component'
 import './Income.styles.css'
+import { INPUT_ERRORS, checkAmount } from '../../utils/input/validation'
 
 const Income = ({onClose, height='646'}) => {
   const [income, setIncome] = useState({income: 0, error: ''})
 
   const onSubmit = () => {
-    console.log('onAddIncome')
+    const incomeError = checkAmount(income.income)
+    if (incomeError === 0) {
+      onClose()
+      return
+    }
+    setIncome({income: '', error: INPUT_ERRORS[incomeError]})
   }
   return (
     <PopupBodyContainerStyle height={height}>

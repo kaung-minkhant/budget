@@ -1,0 +1,9 @@
+.date {
+    display: flex;
+    align-items: flex-end;
+}
+
+.date-seperator {
+    padding: 0px 15px 30px 15px;
+    box-sizing: border-box;
+}
