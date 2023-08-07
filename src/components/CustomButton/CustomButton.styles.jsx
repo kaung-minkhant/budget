@@ -42,6 +42,7 @@ const colorSelect = (theme, type) => {
 
 export const CustomButtonStyle = styled.button`
   width: ${props => `${props.width}px`};
+  cursor: pointer;
   height: 68px;
   border: none;
   border-radius: 10px;
