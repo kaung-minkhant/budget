@@ -1,0 +1,21 @@
+.framecontainer {
+  position: relative;
+  width: 725px;
+  height: 263px;
+  border-radius: 61px;
+  overflow: hidden;
+  border-color: #E53232;
+  border-width: 1.3px;
+  border-style: solid;
+  z-index: -1;
+}
+
+.frameimage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  object-fit: none;
+}
+
+

@@ -1,0 +1,26 @@
+.maininfocontainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; 
+}
+
+.maininfodiv {
+  width: 779px;
+  height: 512px;
+  border-radius: 20px;
+  background-color: #8B7878;
+  margin: 0px 250px;
+
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount {
+  color: white;
+  font-size: 36px;
+  margin-top: 23px;
+}

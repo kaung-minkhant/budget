@@ -1,0 +1,32 @@
+.headerContainer {
+  display: grid;
+  height: 118px;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 2px solid;
+  align-items: center;
+}
+
+.button {
+  font-size: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.buttongroup {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logout {
+  grid-column: 4;
+  grid-row: 1;
+  justify-self: end;
+  margin-right: 63px;
+}
+
+.filler {
+  grid-column: 1;
+  grid-row: 1;
+}
