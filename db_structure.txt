@@ -1,0 +1,28 @@
+budget_id: {
+    current_id,
+    budgets: [
+       id: {
+        createdAt,
+        starting_amount,
+        active,
+        expense: [
+            id: {
+                createdAt,
+                amount,
+            }
+        ],
+        income: [
+            id: {
+                createdAt,
+                amount
+            }
+        ],
+        reserve: [
+            id: {
+                createAt,
+                amount
+            }
+        ]
+       }, 
+    ]
+}

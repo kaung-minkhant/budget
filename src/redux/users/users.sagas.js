@@ -2,7 +2,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects'
 import { userSagaActions } from './users.saga.actions'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import { auth } from '../../firebase/firebase.config'
-import { checkAndCreateUserDocument, checkUser, retrieveUser } from '../../firebase/firebase.utils'
+import { checkAndCreateBudget, checkAndCreateUserDocument, checkUser, retrieveUser } from '../../firebase/firebase.utils'
 import { clearUser, setUser, userError } from './users.slice'
 
 export function* onSignUpAsync({ payload: { email, password } }) {
@@ -13,6 +13,7 @@ export function* onSignUpAsync({ payload: { email, password } }) {
     yield checkAndCreateUserDocument(userObj)
     const userData = yield retrieveUser(userObj)
     yield put(setUser(userData))
+    yield checkAndCreateBudget(userData.budget_id)
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
       alert('Email Already In Use!')
