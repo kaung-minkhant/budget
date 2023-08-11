@@ -1,0 +1,71 @@
+.humburger {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+    cursor: pointer;
+    margin-left: 10px;
+    display: none;
+}
+
+.humburger .burger {
+    width: 2rem;
+    height: 0.5rem;
+    background-color: black;
+    border-radius: 1px;
+    border-width: 1px;
+    /* transform-origin: 1px;
+    transition: all 0.3s linear; */
+}
+
+.burgerOverlayContainer {
+    position: absolute;
+    border-color: black;
+    border-style: solid;
+    top: 0px;
+    bottom: 0px;
+    width: 50vw;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    z-index: 10;
+}
+
+.burgerOverlayContainer.open {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    align-items: center;
+    gap: 45px;
+    color: white;
+}
+
+.burgerOverlayContainer.open > .button {
+    text-decoration: underline;
+}
+
+.burgerOverlayContainer.open > .button.disabled {
+    text-decoration: underline;
+    cursor: default;
+    color: grey;  
+}
+
+.burgerOverlayContainer > span {
+    cursor: pointer;
+    width: fit-content;
+}
+
+
+
+@media (max-width: 450px) {
+    .humburger {
+        display:flex;
+    }
+    .humburger.hide {
+        display: none;
+    }
+
+    
+}

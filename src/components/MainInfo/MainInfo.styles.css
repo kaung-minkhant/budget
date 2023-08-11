@@ -2,8 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: auto; 
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .maininfodiv {
@@ -11,9 +11,9 @@
   height: 512px;
   border-radius: 20px;
   background-color: #8B7878;
-  margin: 0px 250px;
+  /* margin: 0px 250px; */
 
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -24,3 +24,16 @@
   font-size: 36px;
   margin-top: 23px;
 }
+
+
+@media (max-width: 450px) {
+  .maininfodiv {
+    width: 80vw;
+    height: 25vh;
+  }
+  .amount {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+

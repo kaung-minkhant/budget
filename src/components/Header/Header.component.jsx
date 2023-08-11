@@ -4,13 +4,15 @@ import { withRouter } from 'react-router-dom'
 import {userSagaActions} from '../../redux/users/users.saga.actions'
 import CustomButton from '../CustomButton/CustomButton.component'
 import { selectAlreadSet, selectBudgetEntryID } from '../../redux/budget/budget.selectors'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { budgetSagaActions } from '../../redux/budget/budget.saga.actions'
 import { selectCurrentUser } from '../../redux/users/user.selector'
+import Burger from '../Burger/Burger.component'
 
 const Header = ({ history, onBudget, onExpense, onIncome, onReserve}) => {
   const dispatch = useDispatch()
   const budgetAlreadySet = useSelector(selectAlreadSet)
+  const [burgerOpen, setBurgerOpen] = useState(false)
 
   const logout = () => {
     history.push('/')
@@ -18,8 +20,17 @@ const Header = ({ history, onBudget, onExpense, onIncome, onReserve}) => {
   }
   return (
     <div className='headerContainer'>
-      <span className='filler'></span>
-      <div className='buttongroup'>
+      <span className='filler'>
+        <Burger openState={burgerOpen} 
+          onClick={() => setBurgerOpen(x => !x)}
+          onClose={() => setBurgerOpen(false)}
+          onBudget={() => onBudget()}
+          onExpense={() => onExpense()}
+          onIncome={() => onIncome()}
+          onReserve={() => onReserve()}
+        />
+      </span>
+      <div className={`buttongroup`}>
         <span className={`button ${budgetAlreadySet ? 'disabled' : ''}`} onClick={() => budgetAlreadySet || onBudget()}>Add Budget</span>
         <span className={`button ${budgetAlreadySet ? '' : 'disabled'}`} onClick={() => budgetAlreadySet && onExpense()}>Add Expense</span>
         <span className={`button ${budgetAlreadySet ? '' : 'disabled'}`} onClick={() => budgetAlreadySet && onIncome()}>Add Income</span>

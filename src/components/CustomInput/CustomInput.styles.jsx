@@ -2,12 +2,20 @@ import { styled } from "styled-components";
 
 export const InputContainerStyle = styled.div`
   width: ${props => `${props.width}px`};
-  height: 94px;
+  height: ${props => `${props.height}px`};
+
+  @media (max-width: 450px) {
+    width: ${props => `${props.width * 0.7}px`};
+  }
 `;
 
 export const InputLabelStyle = styled.div`
-  font-size: 20px;
+  font-size: ${props => `${props.fontsize}px`};
   margin-bottom: 10px;
+
+  @media (max-width: 450px) {
+    font-size: ${props => `${props.fontsize * 0.8}px`};
+  }
 `;
 
 export const InputFieldStyle = styled.input`

@@ -43,15 +43,21 @@ const colorSelect = (theme, type) => {
 export const CustomButtonStyle = styled.button`
   width: ${props => `${props.width}px`};
   cursor: pointer;
-  height: 68px;
+  height: ${props => `${props.height}px`};
   border: none;
   border-radius: 10px;
-  font-size: 32px;
+  font-size: ${props => `${props.fontsize}px`};
   background-color: ${props => `#${colorSelect(props.theme, 'normal')}`};
   &:hover {
     background-color: ${props => `#${colorSelect(props.theme, 'hover')}`};
   }
   &:active {
     background-color: ${props => `#${colorSelect(props.theme, 'click')}`};
+  }
+
+  @media (max-width: 450px) {
+    width: ${props => `${props.width * 0.5}px`};
+    font-size: ${props => `${props.fontsize * 0.6}px`};
+    height: ${props => `${props.height * 0.6}px`}
   }
 `;
