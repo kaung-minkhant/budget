@@ -4,18 +4,24 @@ import CustomInput from '../CustomInput/CustomInput.component'
 import CustomButton from '../CustomButton/CustomButton.component'
 import { checkAmount, checkDate, INPUT_ERRORS } from '../../utils/input/validation'
 import './Reserve.styles.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { budgetSagaActions } from '../../redux/budget/budget.saga.actions'
+import { selectBudgetEntryID } from '../../redux/budget/budget.selectors'
 
 const Reserve = ({onClose, height='646'}) => {
   const [reserve, setReserve] = useState({reserve: 0, error: ''})
   const [day, setDay] = useState({day: 1, error: ''})
   const [month, setMonth] = useState({month: 1, error: ''})
   const [year, setYear] = useState({year: 2023, error: ''})
+  const dispatch = useDispatch()
+  const budgetEntryID = useSelector(selectBudgetEntryID)
 
   const onSubmit = () => {
     const amountError = checkAmount(reserve.reserve)
     const dateError = checkDate(day.day, month.month, year.year)
 
     if (amountError === 0 && dateError === 0) {
+      dispatch({type: budgetSagaActions.ADD_RESERVE, payload: {budgetEntryID, reserve: reserve.reserve, day: day.day, month: month.month, year: year.year}})
       onClose()
       return;
     }

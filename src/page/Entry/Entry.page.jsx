@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import CustomButton from '../../components/CustomButton/CustomButton.component';
 import FrontPicFrame from '../../components/FrontPicFrame/FrontPicFrame.component';
 import LoginContainer from '../../components/LogIn/LogIn.container';
@@ -7,7 +6,6 @@ import SignUpContainer from '../../components/SignUp/SignUp.container';
 import './Entry.style.css'
 
 const EntryPage = () => {
-  const dispatch = useDispatch();
   const [signUpPopup, setSignUpPopup] = useState(false)
   const [logInPopup, setLogInPopup] = useState(false)
   return (

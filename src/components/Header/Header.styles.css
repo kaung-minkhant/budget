@@ -11,6 +11,10 @@
   text-decoration: underline;
   cursor: pointer;
 }
+.button.disabled {
+  cursor: default;
+  color: grey;
+}
 
 .buttongroup {
   grid-column: 2 / 4;

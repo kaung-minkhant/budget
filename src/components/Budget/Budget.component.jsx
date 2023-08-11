@@ -4,13 +4,19 @@ import CustomInput from '../CustomInput/CustomInput.component'
 import CustomButton from '../CustomButton/CustomButton.component'
 import {INPUT_ERRORS, checkAmount} from '../../utils/input/validation'
 import './Budget.styles.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectBudgetID } from '../../redux/users/user.selector'
+import { budgetSagaActions } from '../../redux/budget/budget.saga.actions'
 
 
 const Budget = ({onClose, height='646'}) => {
   const [budgetAmount, setBudgetAmount] = useState({budget: 0, error: ''})
+  const dispatch = useDispatch()
+  const budgetID = useSelector(selectBudgetID)
   const onSubmit = () => {
     const budgeError = checkAmount(budgetAmount.budget)
     if (budgeError === 0) {
+      dispatch({type: budgetSagaActions.CREATE_BUDGET, payload: {starting_amount: budgetAmount.budget, budgetID: budgetID}})
       onClose()
       return
     }

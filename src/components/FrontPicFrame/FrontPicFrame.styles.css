@@ -8,14 +8,27 @@
   border-width: 1.3px;
   border-style: solid;
   z-index: -1;
+  background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=740&q=80');
+  background-size: none;
+  background-position: center;
 }
 
-.frameimage {
+/* .frameimage {
   position: absolute;
   width: 100%;
   height: 100%;
 
   object-fit: none;
+} */
+
+@media (max-width: 450px) {
+  .framecontainer {
+    width: 70vw;
+    height: 15vh;
+    border-radius: 20px;
+    background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=420&q=80');
+    background-position: center;
+  }
 }
 
 
