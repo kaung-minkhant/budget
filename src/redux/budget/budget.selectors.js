@@ -36,6 +36,12 @@ export const selectExpense = createSelector(
 export const selectTotal = createSelector(
   [selectBudget],
   (budget) => {
+    const currentDateObj = new Date()
+    const currentDate = currentDateObj.getDate()
+    const currentMonth = currentDateObj.getMonth()+1
+    const currentYear = currentDateObj.getFullYear()
+    const currentEndDate = new Date(currentYear, currentMonth, 0).getDate()
+    const reminding_days = currentEndDate - currentDate + 1
     const starting_amount = parseInt(budget.starting_amount)
     const expense = budget.expense
     const income = budget.income
@@ -52,6 +58,6 @@ export const selectTotal = createSelector(
       return accumulator + parseInt(currentValue.reserve)
     }
     , 0)
-    return starting_amount + totalIncome - totalExpense - totalReserve
+    return Math.round((starting_amount + totalIncome - totalExpense - totalReserve)/reminding_days).toLocaleString('en-US')
   }
 )

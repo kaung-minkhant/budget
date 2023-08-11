@@ -3,7 +3,6 @@ import "./Burger.styles.css";
 import { selectAlreadSet } from "../../redux/budget/budget.selectors";
 
 const Burger = ({ onClick, openState, onClose = () => {}, onBudget, onExpense, onIncome, onReserve}) => {
-  console.log(openState);
   const budgetAlreadySet = useSelector(selectAlreadSet)
   return (
     <>
